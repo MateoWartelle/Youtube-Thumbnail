@@ -1,0 +1,33 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+<body>
+<center>
+<div class="input-group">
+      <input type="text" class="form-control text-center" id = "URL">
+      <span class="input-group-btn">
+        <button class="btn btn-round btn-default" onclick="myFunction()" type="button">Grab Thumbnail from Youtube Link</button>
+      </span>
+    </div>    
+<p id="Output"></p>
+<script>
+function CopyFunction() {
+    var copyText = document.getElementById("copyimageURL");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("Copied the URL: " + copyText.value);  
+}
+</script>   
+<script>
+function myFunction() {
+    var URL = document.getElementById("URL").value;
+    var URLMATCH = URL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+    var out = ( "<h1>YouTube Thumbnail</h1><p><img src=\"http://i3.ytimg.com/vi/" + URLMATCH[1] + "/maxresdefault.jpg\" class=\"image\" style=\"width:1280 height:720\"/></p>Image URL:<br /><div class =\"input-group\"><input type \"text\" class=\"form-control text-center\" name=\"imageURL\" id=\"copyimageURL\" class=\"text\" size=\"70\" type=\"text\" value=\"http://i3.ytimg.com/vi/"+ URLMATCH[1] + "/maxresdefault.jpg\" /><span class =\"input-group-btn\"><button class = \"btn btn-round btn-default\" onclick = \"CopyFunction()\" type=\"button\">Copy URL </button></span></div><p>Right/Ctrl Click the image to download.  Highlight the URL above and copy to your clipboard. <br>If the image is a grey icon with three dots, Come back later and try again </p>" );
+    document.getElementById("Output").innerHTML = out;
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</center>
+</body>
+</html>

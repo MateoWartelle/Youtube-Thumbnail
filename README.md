@@ -1,2 +1,2 @@
 # Youtube-Thumbnail
-A website to download hires Youtube thumbnail's from URL
+A website to download hiRes Youtube thumbnail's from URL
